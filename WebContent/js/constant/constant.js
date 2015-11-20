@@ -4,7 +4,7 @@ var serviceUrl = "http://192.168.10.114:8080/DraftDynasty/api/";//pooja local
 //var serviceUrl = "/Inka/api/inkaAdminWebservice/";
 
 myApp.constant('DRAFT_DYNASTY_URL', {
-        loginUrl: serviceUrl + "sessions",
+        loginUrl: serviceUrl + "user/logIn",
         getCountries:serviceUrl + "get_countries",
         forgotPassword:serviceUrl + "forgot-password",
         registerUrl:serviceUrl + "user"

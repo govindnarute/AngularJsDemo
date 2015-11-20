@@ -11,10 +11,10 @@ app.factory('APIServices',['$http','DRAFT_DYNASTY_URL', function($http,DRAFT_DYN
 
 
 
-			draftDynastyAPI.validateLogin = function(username, pass) {
+			draftDynastyAPI.validateLogin = function(email, pass) {
 				alert('in services')
-			        	return $http.post(DRAFT_DYNASTY_URL.loginUrl, {
-							username : username,
+			        	return $http.put(DRAFT_DYNASTY_URL.loginUrl, {
+							email : email,
 							password : pass
 						});
 			};
