@@ -8,28 +8,21 @@ myApp.controller("signupController", [
 
 			$scope.registerUser = function() {
 
-				console.log($scope.firstname)
-				console.log($scope.lastname)
-				console.log($scope.nickname)
-				console.log($scope.password)
-				console.log($scope.path)
-				console.log($scope.email)
-
 				APIServices.registerUser($scope.firstname, $scope.lastname,
 						$scope.path, $scope.email, $scope.password,
 						$scope.nickname).success(function(data, status) {
-					alert('success')
+					console.log("*********Response Register User***********");
+					console.log(data);
+					console.log(status);
+					alert('success');
 				}).error(function(data, status) {
 
-					console.log("tttttttttttt")
-					console.log(data)
-					console.log(status)
-					console.log("tttttttttttt")
-					alert('faild')
-					// console(status);
-					// alert("Failed");
+					console.log("*********Response Register User***********");
+					console.log(data);
+					console.log(status);
+					alert('faild');
 				});
-			};// register user
+			};// register user()
 
 			// APIServices.validateLogin("test", "test")
 			// .success(function(data, status) {
