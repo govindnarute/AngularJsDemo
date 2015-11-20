@@ -18,6 +18,21 @@ app.factory('APIServices',['$http','DRAFT_DYNASTY_URL', function($http,DRAFT_DYN
 							password : pass
 						});
 			};
+			draftDynastyAPI.registerUser = function(firstName, lastName,profilePic,email,password,nickName) {
+				alert('in register user')
+			        	return $http.post(DRAFT_DYNASTY_URL.loginUrl, {
+			        		firstName:firstName,
+			        		lastName:lastName,
+			        		profilePic:profilePic,
+			        		email:email,
+			        		password:password,
+			        		nickName:nickName
+							
+						});
+			};
+			
+			
+			
 			draftDynastyAPI.getCountries = function(username, pass) {
 	        	return $http.get(DRAFT_DYNASTY_URL.getCountries);
 	};

@@ -27,6 +27,11 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'template/signup.html'
             // we'll get to this in a bit       
         })
+        .state('forgot-password', {
+        	url: '/forgot-password',
+            templateUrl: 'template/forgot-password.html'
+            // we'll get to this in a bit       
+        })
         
         ;
         
