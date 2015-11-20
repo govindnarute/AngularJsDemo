@@ -20,7 +20,7 @@ app.factory('APIServices',['$http','DRAFT_DYNASTY_URL', function($http,DRAFT_DYN
 			};
 			draftDynastyAPI.registerUser = function(firstName, lastName,profilePic,email,password,nickName) {
 				alert('in register user')
-			        	return $http.post(DRAFT_DYNASTY_URL.loginUrl, {
+			        	return $http.post(DRAFT_DYNASTY_URL.registerUrl, {
 			        		firstName:firstName,
 			        		lastName:lastName,
 			        		profilePic:profilePic,
