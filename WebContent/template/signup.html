@@ -1,6 +1,15 @@
+<style>
+
+<!--
+
+-->
+</style>
+
+
 <div id="signupbox"
 	class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2"
 	data-ng-controller="signupController">
+	
 	<div class="panel panel-info">
 		<div class="panel-heading">
 			<div class="panel-title">Sign Up</div>
@@ -100,7 +109,16 @@
 	</div>
 
 
+<div>Select an image file: <input type="file" id="fileInput" class="file-loading" /></div>
+<input id="input-24" type="file" multiple=true class="file-loading">
+<br><br>
+  <div class="cropArea">
+    <img-crop image="myImage" result-image="myCroppedImage"></img-crop>
+  </div>
+  <div>Cropped Image:</div>
+  <div><img ng-src="{{myCroppedImage}}" /></div>
+  <input type="button" value="crop" ng-click="cropImage()">
+  <textarea class="result-datauri"> {{base64Image}}</textarea>
+</div>
 
 
-</div>
-</div>
