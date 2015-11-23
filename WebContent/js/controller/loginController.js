@@ -4,8 +4,10 @@ myApp.controller("loginController", [
 		'$http',
 		'DRAFT_DYNASTY_URL',
 		'APIServices',
-		function($scope, $rootScope, $http, DRAFT_DYNASTY_URL, APIServices) {
+		'$localStorage',
+		function($scope, $rootScope, $http, DRAFT_DYNASTY_URL, APIServices,$localStorage) {
 			// This is for login user
+			$localStorage.myName="Govind Narute"
 			$scope.signIn = function() {
 				APIServices.validateLogin($scope.email, $scope.password)
 						.success(function(data, status) {
@@ -26,8 +28,10 @@ myApp.controller("loginController", [
 
 			// this is for temp
 			$scope.forgotPassword = function() {
-
-				APIServices.forgotPassword("govindnarute@gmail.com").success(
+				if(!$scope.email)
+				return	
+				 alert('test')
+				APIServices.forgotPassword($scope.email).success(
 						function(data, status) {
 							console.log("*********Response***********");
 							console.log(data);

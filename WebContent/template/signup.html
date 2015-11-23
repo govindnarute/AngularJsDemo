@@ -1,7 +1,5 @@
 <style>
-
 <!--
-
 -->
 </style>
 
@@ -9,7 +7,7 @@
 <div id="signupbox"
 	class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2"
 	data-ng-controller="signupController">
-	
+
 	<div class="panel panel-info">
 		<div class="panel-heading">
 			<div class="panel-title">Sign Up</div>
@@ -69,22 +67,24 @@
 							name="passwd" placeholder="Password" required>
 					</div>
 				</div>
-				
-				
-                <div >
-               <b> Select an image file:</b> <input type="file" id="fileInput" class="form-control" />
-                
 
-<br><br>
-  <div style="margin-left: 200px;margin-top: 20px">
-    <img-crop image="myImage" result-image="myCroppedImage"></img-crop>
-  </div>
-  <div data-ng-show="cropImageShow">
-  <div>Cropped Image:</div>
-  <div ><img ng-src="{{myCroppedImage}}" /></div>
-  <input type="button" class="btn btn-warning" value="crop" ng-click="cropImage()">
-  </div>
-                </div>
+
+				<div>
+					<b> Select an image file:</b> <input type="file" id="fileInput"
+						class="form-control" /> <br>
+					<br>
+					<div style="margin-left: 200px; margin-top: 20px">
+						<img-crop image="myImage" result-image="myCroppedImage"></img-crop>
+					</div>
+					<div data-ng-show="cropImageShow">
+						<div>Cropped Image:</div>
+						<div>
+							<img ng-src="{{myCroppedImage}}" />
+						</div>
+						<input type="button" class="btn btn-warning" value="crop"
+							ng-click="cropImage()">
+					</div>
+				</div>
 				<div class="form-group">
 					<!-- Button -->
 					<div class="col-md-offset-3 col-md-9">
