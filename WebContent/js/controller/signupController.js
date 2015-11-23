@@ -10,6 +10,7 @@ myApp.controller("signupController", [
 
 			$scope.myImage = '';
 			$scope.myCroppedImage = '';
+			$scope.cropImageShow=false;
 
 			var handleFileSelect = function(evt) {
 				var file = evt.currentTarget.files[0];
@@ -17,7 +18,8 @@ myApp.controller("signupController", [
 				reader.onload = function(evt) {
 					$scope.$apply(function($scope) {
 						$scope.myImage = evt.target.result;
-						var canvas = document.getElementsByTagName('canvas')[0];
+						alert('test')
+						$scope.cropImageShow=true;
 						
 					});
 				};
@@ -40,6 +42,7 @@ myApp.controller("signupController", [
 					$scope.path = $scope.base64Image;
 				else
 					$scope.path = $scope.myImage.split(",").pop();
+				alert($scope.path)
 				APIServices.registerUser($scope.firstname, $scope.lastname,
 						$scope.path, $scope.email, $scope.password,
 						$scope.nickname).success(function(data, status) {

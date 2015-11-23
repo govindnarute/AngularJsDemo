@@ -1,5 +1,5 @@
 //var serviceUrl = "http://52.10.100.99:3000/"; // localmotives
-var serviceUrl = "http://192.168.1.125:8080/DraftDynasty/api/";// pooja local
+var serviceUrl = "http://192.168.10.114:8080/DraftDynasty/api/";// pooja local
 // var serviceUrl = "/Inka/api/inkaAdminWebservice/"; // inka Local
 
 myApp.constant('DRAFT_DYNASTY_URL', {
