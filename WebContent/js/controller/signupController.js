@@ -22,7 +22,7 @@ myApp
 									$scope.$apply(function($scope) {
 										$scope.myImage = evt.target.result;
 										$scope.cropImageShow = true;
-
+                                      alert('test')
 									});
 								};
 								reader.readAsDataURL(file);

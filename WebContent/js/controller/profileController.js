@@ -9,6 +9,23 @@ myApp.controller("profileController", [
 		function($scope, $rootScope, $http, DRAFT_DYNASTY_URL, APIServices,
 				$localStorage,$state) {
 			
+			$scope.myImage = '';
+			$scope.myCroppedImage = '';
+			var handleFileSelect = function(evt) {
+				var file = evt.currentTarget.files[0];
+				var reader = new FileReader();
+				reader.onload = function(evt) {
+					$scope.$apply(function($scope) {
+						$scope.myImage = evt.target.result;
+						$scope.profilePic=$scope.myImage;
+
+					});
+				};
+				reader.readAsDataURL(file);
+			};
+			angular.element(
+					document.querySelector('#fileInput')).on(
+					'change', handleFileSelect);
 			if(!$localStorage.authToken)
 				{
 				alert('Not Authenticated')
@@ -20,10 +37,13 @@ myApp.controller("profileController", [
 			$scope.lastName=$localStorage.lastName;
 			$scope.nickName=$localStorage.nickName;
 			$scope.email=$localStorage.email;
-			$scope.profilePic=$localStorage.profilePic;
+			// $scope.profilePic=$localStorage.profilePic;
+			$scope.profilePic="http://lorempixel.com/200/200/people/9/"
 			$scope.password=$localStorage.password;
 			$scope.confirmPassword=$localStorage.password;
-
+			
+			
+			
 			
             $scope.updateProfile=function(){
             	if($scope.password!=$scope.confirmPassword)
@@ -31,9 +51,17 @@ myApp.controller("profileController", [
             		return 
             		}
             	
+            	if($scope.myImage)
+            		{
+            		$scope.path = $scope.myImage.split(",")
+					.pop();
+            		}
+            	else
+            		$scope.path=$localStorage.profilePic;
+            	alert($scope.path)
             	APIServices.updateProfile($scope.firstName,
     			$scope.lastName,
-    			$scope.profilePic,
+    			$scope.path,
     			$scope.email,
     			$scope.password,
     			$scope.nickName
@@ -51,7 +79,7 @@ myApp.controller("profileController", [
 					alert('faild');
 				});
             	
-            };//updateProfile()
+            };// updateProfile()
 
 $scope.logout=function(){
 				
@@ -63,7 +91,7 @@ $scope.logout=function(){
 				$localStorage.profilePic="";
 				$localStorage.authToken="";
 				$state.go('home');
-			};//logout()
+			};// logout()
 			
 			$scope.resetData=function(){
 				$scope.firstName=$localStorage.firstName;
@@ -73,5 +101,5 @@ $scope.logout=function(){
 				$scope.profilePic=$localStorage.profilePic;
 				$scope.password=$localStorage.password;
 				$scope.confirmPassword=$localStorage.password;
-			};//resetData()
+			};// resetData()
 		} ]);// controller close
