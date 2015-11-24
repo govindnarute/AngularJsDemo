@@ -37,5 +37,19 @@ app.factory('APIServices', [
 				});
 			};// forgotPassword()
 
+			// ***********Sign Up***********
+			draftDynastyAPI.updateProfile = function(firstName, lastName,
+					profilePic, email, password, nickName) {
+				return $http.put(DRAFT_DYNASTY_URL.registerUrl, {
+					firstName : firstName,
+					lastName : lastName,
+					profilePic : profilePic,
+					email : email,
+					password : password,
+					nickName : nickName
+
+				});
+			};// registerUser()
+			
 			return draftDynastyAPI;
 		} ]);

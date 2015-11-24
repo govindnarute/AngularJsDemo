@@ -33,6 +33,10 @@ myApp
 						url : '/forgot-password',
 						templateUrl : 'template/forgot-password.html'
 					})
+					.state('edit-profile', {
+						url : '/edit-profile',
+						templateUrl : 'template/edit-profile.html'
+					})
 
 			;
 
